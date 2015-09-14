@@ -1,0 +1,16 @@
+{
+  "name": "TrackSiteByUrl",
+  "version": "0.1.0",
+  "description": "Lookup hostname in current page's URL to set the site ID for the tracker request.",
+  "theme": false,
+  "require": {
+    "piwik": ">=2.10"
+  },
+  "authors": [
+    {
+      "name": "COM.lounge GmbH",
+      "email": "info@comlounge.net",
+      "homepage": "http://comlounge.net"
+    }
+  ]
+}
