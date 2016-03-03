@@ -2,18 +2,21 @@
 
 ## Description
 
-Add your plugin description here.
+Lookup hostname in current page's URL to set the site ID for the tracker request. 
 
-## FAQ
+Subsites bubble up until match is found.
 
-__My question?__
+## Documentation
 
-My answer
+1. Clone the plugin into the plugins directory of your Piwik installation.
 
-## Changelog
+    ```
+    cd plugins/
+    git clone https://github.com/halfdan/piwik-barometer-plugin.git Barometer
+    ```
+    
+2. Login as superuser into your Piwik installation and activate the plugin under Settings -> Plugins
 
-Here goes the changelog text.
+## Contribute 
 
-## Support
-
-Please direct any feedback to ...
+If you are interested in contributing to this plugin, feel free to send pull requests!
