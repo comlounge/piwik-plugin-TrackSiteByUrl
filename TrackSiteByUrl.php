@@ -20,6 +20,7 @@ use Piwik\Plugins\SitesManager\API as APISitesManager;
 class TrackSiteByUrl extends \Piwik\Plugin
 {
 
+    /*
     private $logger;
     
     public function __construct($pluginName=false)
@@ -27,6 +28,7 @@ class TrackSiteByUrl extends \Piwik\Plugin
         parent::__construct($pluginName);
         $this->logger = StaticContainer::getContainer()->get('Psr\Log\LoggerInterface');
     }
+    */
 
     public function getUrlRecursive($url)
     {
@@ -46,8 +48,9 @@ class TrackSiteByUrl extends \Piwik\Plugin
     
     public function getListHooksRegistered()
     {
+        //$this->logger->debug("getListHooksRegistered");
         return array(
-            'Tracker.Request.getIdSite' => 'getRequestIdSite',
+            "Tracker.Request.getIdSite" => 'getRequestIdSite'
         );
     }
     
@@ -64,18 +67,10 @@ class TrackSiteByUrl extends \Piwik\Plugin
     
     public function getSiteIdForUrl($url)
     {
-        //$this->logger->debug($url." ".date('d')."-".date('m')."-".date('Y')." ".date('H').":".date('i').":".date('s')); 
         $id = null;
         $urlParse = @parse_url(Common::unsanitizeInputValue($url));
         if(isset($urlParse['host']))
         {
-            /**
-             * Fix: Chris
-             * added database and access object, which is used implicit and not added by Piwik itself
-             */
-            //require_once PIWIK_INCLUDE_PATH .'/core/Loader.php';
-            //Zend_Registry::isRegistered('access') ?  true : Piwik::createAccessObject();
-            //Zend_Registry::isRegistered('db') ?  true : Piwik::createDatabaseObject();
             $isSuperUser = Piwik::hasUserSuperUserAccess();
             Piwik::setUserHasSuperUserAccess();
 
@@ -94,13 +89,11 @@ class TrackSiteByUrl extends \Piwik\Plugin
             for ($i=0; $i<sizeof($ret); $i++) {
                 
                 $hostUrl = $protocol. $urlParse['host'] . $ret[$i];
-                $this->logger->debug("try mapping: ".$hostUrl);
                 
                 $sites = APISitesManager::getInstance()->getSitesIdFromSiteUrl($hostUrl);
                 if(count($sites))
                 {
                     $id = $sites[0]['idsite'];
-                    $this->logger->debug("found mapping: ".$hostUrl);
                     break;
                 }
             }

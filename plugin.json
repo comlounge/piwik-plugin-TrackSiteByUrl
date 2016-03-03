@@ -4,7 +4,7 @@
   "description": "Lookup hostname in current page's URL to set the site ID for the tracker request.",
   "theme": false,
   "require": {
-    "piwik": ">=2.10"
+    "piwik": ">=2.0"
   },
   "authors": [
     {
