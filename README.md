@@ -12,7 +12,7 @@ Subsites bubble up until match is found.
 
     ```
     cd plugins/
-    git clone https://github.com/halfdan/piwik-barometer-plugin.git Barometer
+    git clone https://github.com/cryu/piwik-plugin-TrackSiteByUrl.git TrackSiteByUrl
     ```
     
 2. Login as superuser into your Piwik installation and activate the plugin under Settings -> Plugins
