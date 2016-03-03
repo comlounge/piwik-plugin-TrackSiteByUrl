@@ -6,11 +6,13 @@
   "require": {
     "piwik": ">=2.0"
   },
+  "keywords": ["trackbyurl", "track", "tracking", "url", "subsite"],
   "authors": [
     {
       "name": "COM.lounge GmbH",
       "email": "info@comlounge.net",
       "homepage": "http://comlounge.net"
     }
-  ]
+  ],
+  "homepage": "https://github.com/cryu/piwik-plugin-TrackSiteByUrl"
 }
